@@ -38,7 +38,6 @@ export default function Home() {
                         src={login}
                         alt="login"
                         width={500}
-                        height={200}
                         priority
                         />
                     </div>
