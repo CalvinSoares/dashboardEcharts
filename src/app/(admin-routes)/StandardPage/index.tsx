@@ -1,5 +1,3 @@
-"use client"
-
 import SideBar from "../../../components/SideBar"
 
 const StandardPage = () => {
