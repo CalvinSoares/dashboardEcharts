@@ -1,3 +1,5 @@
+"use client"
+
 import { SlGraph } from "react-icons/sl";
 
 const SalesField = () => {

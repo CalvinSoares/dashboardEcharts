@@ -1,3 +1,5 @@
+"use client"
+
 import { FiEye } from "react-icons/fi";
 
 

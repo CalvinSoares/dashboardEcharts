@@ -1,3 +1,5 @@
+"use client"
+
 import { MdAttachMoney } from "react-icons/md";
 
 const RevenueField = () => {
