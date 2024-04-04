@@ -43,7 +43,7 @@ const Register = () => {
     const postCreateUser = async (data: any) => {
         try {
             const res = await axios.post(
-                'http://localhost:3000/auth/register',
+                'http://localhost:3001/auth/register',
                 data
             )
             console.log(res);
@@ -90,11 +90,11 @@ const Register = () => {
                     onBlur={form.handleBlur}
                     placeholder="Nome Completo" 
                 />
-                {checkErrorInput('name') && (
+                {typeof form.errors.name === 'string' && (
                     <p className="text-red-500 text-sm mt-1">
                         {form.errors.name}
                     </p>
-                )}
+                )}  
                 <input
                     type="email"
                     name="email"
@@ -106,7 +106,7 @@ const Register = () => {
                     placeholder='Digite seu e-mail..'
                     autoComplete="email"
                 />
-                {checkErrorInput('email') && (
+                {typeof form.errors.email === 'string' && (
                     <p className="text-red-500 text-sm mt-1">
                         {form.errors.email}
                     </p>
@@ -122,7 +122,7 @@ const Register = () => {
                     placeholder='Digite sua senha..'
                     autoComplete="current-password"
                 />
-                {checkErrorInput('password') && (
+                {typeof form.errors.password === 'string' && (
                     <p className="text-red-500 text-sm mt-1">
                         {form.errors.password}
                     </p>
