@@ -43,7 +43,7 @@ const Register = () => {
     const postCreateUser = async (data: any) => {
         try {
             const res = await axios.post(
-                'https://4b69-179-186-28-27.ngrok-free.app/auth/register',
+                'https://api-dashboard-u4g5.onrender.com/auth/register',
                 data
             )
             console.log(res);
