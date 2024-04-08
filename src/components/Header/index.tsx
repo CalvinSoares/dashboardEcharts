@@ -4,25 +4,36 @@ import Search from "../SearchInfo"
 import { IoIosArrowDown } from "react-icons/io";
 import User from '../../../assets/User.jpg'
 import { VscAccount } from "react-icons/vsc";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ButtonLogout from "../ButtonLogout/ButtonLogout";
 import Image from "next/image";
+import axios from "axios";
+import { useSession } from "next-auth/react";
 
 interface UserData {
-    userName: string;
-    email: string;
+  name: string;
+  email: string;
 }
 
-
-const dados: UserData[] = [
-    {
-        userName: 'Calvin Soares',
-        email: 'Calvinteste@teste.com'
-    }
-]
-
 const Header: React.FC<{ title: string }> = ({title}) => {
+  const [userData, setUserData] = useState<UserData | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+
+    const { data }: any = useSession()
+  
+    const getUserData = async (userId: any) => {
+      try {
+        const response = await axios.get(
+          `https://api-dashboard-u4g5.onrender.com/user/${userId._id}`);
+        setUserData(response.data.user);
+      } catch (error) {
+        console.error("Erro ao buscar os dados do usuário:", error);
+      }
+    };
+    
+  useEffect(() => {
+    getUserData(data);
+  }, []);
  
 
   return (
@@ -39,12 +50,12 @@ const Header: React.FC<{ title: string }> = ({title}) => {
                 <h1 className="text-white text-2xl font-serif">{title}</h1>
             </div>           
             <div className="flex items-center">
-                {dados.map((item, index) => (
-                    <div key={index}>
-                        <p className="text-white text-[14px]">{item.userName}</p>
-                        <p className="text-gray-400 text-[18px]">{item.email}</p>              
+              {userData && 
+                    <div>
+                        <p className="text-white text-[14px]">{userData.name}</p>
+                        <p className="text-gray-400 text-[18px]">{userData.email}</p>              
                     </div>
-                ))}
+              }           
                 <div className="flex m-2 items-center relative">
                     <Image 
                       className="w-12 h-12 rounded-full" 
