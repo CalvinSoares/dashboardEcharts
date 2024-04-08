@@ -14,7 +14,7 @@ export const nextAuthOptions: NextAuthOptions = {
       async authorize(credentials, req) {
         try {
           const response = await axios.post(
-            "http://localhost:3001/auth/login",
+            "https://4b69-179-186-28-27.ngrok-free.app/auth/login",
             {
               email: credentials?.email,
               password: credentials?.password,
@@ -37,7 +37,9 @@ export const nextAuthOptions: NextAuthOptions = {
   ],
   callbacks: {
     async jwt({ token, user }) {
+      console.log(user);
       user && (token.user = user);
+      console.log(token);
       return token;
     },
     async session({ session, token }) {
