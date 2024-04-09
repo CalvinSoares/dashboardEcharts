@@ -15,7 +15,7 @@ const ButtonLogout = () => {
       router.replace('/')
     }
 
-    return <button onClick={logout} className="p-2 w-40 border border-gray-300 rounded-md">Sair</button>
+    return <button onClick={logout} className="w-32 text-white">Sair</button>
 }
 
 export default ButtonLogout;
