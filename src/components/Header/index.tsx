@@ -23,7 +23,7 @@ const Header: React.FC<{ title: string }> = ({title}) => {
     const getUserData = async (userId: any) => {
       try {
         const response = await axios.get(
-          `http://localhost:3001/user/${userId._id}`);
+          `https://api-dashboard-u4g5.onrender.com/user/${userId._id}`);
         setUserData(response.data.user);
         localStorage.setItem('userData', JSON.stringify(response.data.user));
       } catch (error) {
