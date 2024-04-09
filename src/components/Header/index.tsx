@@ -18,21 +18,26 @@ interface UserData {
 const Header: React.FC<{ title: string }> = ({title}) => {
   const [userData, setUserData] = useState<UserData | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
-
-    const { data }: any = useSession()
+  const { data }: any = useSession()
   
     const getUserData = async (userId: any) => {
       try {
         const response = await axios.get(
-          `https://api-dashboard-u4g5.onrender.com/user/${userId._id}`);
+          `http://localhost:3001/user/${userId._id}`);
         setUserData(response.data.user);
+        localStorage.setItem('userData', JSON.stringify(response.data.user));
       } catch (error) {
         console.error("Erro ao buscar os dados do usuário:", error);
       }
     };
     
   useEffect(() => {
-    getUserData(data);
+    const storedUserData = localStorage.getItem('userData');
+    if (storedUserData) {
+      setUserData(JSON.parse(storedUserData));
+    } else {
+      getUserData(data);
+    }
   }, []);
  
 
@@ -73,14 +78,13 @@ const Header: React.FC<{ title: string }> = ({title}) => {
                     {menuOpen && (
             <div className="absolute top-full right-0 z-10 mt-2 mr-6 bg-[#6b6b6b] h-24 w-44 rounded-md shadow-lg py-2">
               <div
-                className="px-4 py-2 text-gray-800 hover:bg-slate-900 hover:rounded-xl cursor-pointer flex justify-center items-center"               
+                className="px-4 py-2 text-gray-800 hover:bg-slate-900 duration-200 rounded-xl cursor-pointer flex justify-center items-center"               
               >
-                <VscAccount className="text-white" size={24} />
                 <p className="text-white ml-2">Conta</p>
               </div>
               <div
-                className="px-4 py-2 text-gray-800 hover:bg-slate-900 hover:rounded-xl cursor-pointer flex justify-center  items-center gap-1"
-              >            
+                className="px-4 py-2 text-gray-800 hover:bg-slate-900 duration-200 rounded-xl  cursor-pointer flex justify-center items-center"
+              >          
                 <ButtonLogout />
               </div>
             </div>
