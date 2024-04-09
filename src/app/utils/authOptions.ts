@@ -14,7 +14,7 @@ export const nextAuthOptions: NextAuthOptions = {
       async authorize(credentials, req) {
         try {
           const response = await axios.post(
-            "http://localhost:3001/auth/login",
+            "https://api-dashboard-u4g5.onrender.com/auth/login",
             {
               email: credentials?.email,
               password: credentials?.password,
