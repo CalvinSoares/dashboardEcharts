@@ -43,7 +43,7 @@ const Register = () => {
     const postCreateUser = async (data: any) => {
         try {
             const res = await axios.post(
-                'https://api-dashboard-u4g5.onrender.com/auth/register',
+                'http://localhost:3001/auth/register',
                 data
             )
             console.log(res);
