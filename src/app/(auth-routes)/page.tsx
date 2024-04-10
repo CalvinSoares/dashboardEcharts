@@ -50,6 +50,7 @@ export default function Home() {
                             <input
                                 type="email"
                                 id="email"
+                                required
                                 placeholder='Digite seu e-mail..'
                                 autoComplete="email"
                                 className="mb-6 w-full mt-2 h-12 px-4 bg-transparent border-b border-gray-200 focus:outline-none text-gray-200"
@@ -58,6 +59,7 @@ export default function Home() {
                             <input
                                 type="password"
                                 id="password"
+                                required
                                 placeholder='Digite sua senha..'
                                 autoComplete="current-password"
                                 className="mb-6 w-full mt-2 h-12 px-4 bg-transparent border-b border-gray-200 focus:outline-none text-gray-200"
