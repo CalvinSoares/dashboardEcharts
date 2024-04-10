@@ -11,6 +11,7 @@ const ButtonLogout = () => {
       await signOut({
         redirect: false
       })
+      localStorage.removeItem("userData");
 
       router.replace('/')
     }

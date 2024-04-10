@@ -46,7 +46,6 @@ const Register = () => {
                 'https://api-dashboard-u4g5.onrender.com/auth/register',
                 data
             )
-            console.log(res);
             if (res.data.success) {
                 console.log('Conta cadastrada com sucesso', {
                     position: 'top-right',
@@ -68,10 +67,8 @@ const Register = () => {
             <div className='mb-12 md:mb-0 md:w-6/12 lg:w-6/12'> 
                 <Image 
                     src={register} 
-                    className="w-full" 
                     alt="register" 
-                    width={500}
-                    height={200}
+                    width={700}
                     priority
                 />
             </div>
@@ -84,7 +81,7 @@ const Register = () => {
                     type="text" 
                     name="name"
                     id="name"
-                    className={`mb-6 w-full mt-2 h-12 px-4 bg-transparent border-b text-gray-200 ${checkErrorInput('name') ? 'border-red-500 border-2' : ''}`}
+                    className={`mb-6 w-full mt-2 h-12 px-4 bg-transparent border-b focus:outline-none text-gray-200 ${checkErrorInput('name') ? 'border-red-500 border-2' : ''}`}
                     value={form.values.name}
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
@@ -99,7 +96,7 @@ const Register = () => {
                     type="email"
                     name="email"
                     id="email"
-                    className={`mb-6 w-full mt-2 h-12 px-4 bg-transparent border-b text-gray-200 ${checkErrorInput('email') ? 'border-red-500 border-2' : ''}`}
+                    className={`mb-6 w-full mt-2 h-12 px-4 bg-transparent border-b focus:outline-none text-gray-200 ${checkErrorInput('email') ? 'border-red-500 border-2' : ''}`}
                     value={form.values.email}
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
@@ -115,7 +112,7 @@ const Register = () => {
                     type="password"
                     name="password"
                     id="password"
-                    className={`mb-6 w-full mt-2 h-12 px-4 bg-transparent border-b text-gray-200 ${checkErrorInput('password') ? 'border-red-500 border-2' : ''}`}
+                    className={`mb-6 w-full mt-2 h-12 px-4 bg-transparent border-b focus:outline-none text-gray-200 ${checkErrorInput('password') ? 'border-red-500 border-2' : ''}`}
                     value={form.values.password}
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
@@ -130,9 +127,12 @@ const Register = () => {
                 <div className="w-full">
                     <button
                         type="submit"
-                        className="inline-block w-full rounded bg-emerald-400 px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-black"
+                        className="inline-flex w-full h-11 relative items-center justify-center overflow-hidden font-medium transition-all bg-emerald-400 rounded group py-1.5 px-2.5"
                     >
+                        <span className="w-full h-48 rounded bg-indigo-700 absolute bottom-0 left-0 translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"></span>
+                        <span className="relative w-full text-center font-bold uppercase text-slate-900 transition-colors duration-300 ease-in-out group-hover:text-white ">
                         Cadastrar
+                        </span>
                     </button>
                 </div>
             </form>
@@ -143,11 +143,13 @@ const Register = () => {
                 </div>
                     <div className="w-full">
                         <button
-                            onClick={() => router.push('/')}
-                            className="inline-block w-full rounded bg-fuchsia-400 px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-black"
-                        >
-                            Login
-                        </button>
+                                onClick={() => router.push('/')}
+                                className="inline-flex w-full h-11 relative items-center justify-center overflow-hidden font-medium transition-all bg-fuchsia-400 rounded group py-1.5 px-2.5">
+                                <span className="w-full h-48 rounded bg-indigo-700 absolute bottom-0 left-0 translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"></span>
+                                <span className="relative w-full text-center font-bold uppercase text-slate-900 transition-colors duration-300 ease-in-out group-hover:text-white ">
+                                    Login   
+                                </span>
+                            </button>
                     </div>
                 </div> 
             </div>      
