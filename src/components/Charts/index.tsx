@@ -50,6 +50,6 @@ const option = {
     }
   ]
 }; 
-return <ReactEcharts option={option} style={{ height: '200px' }} className="w-[300px] bottom-28"/>;
+return <ReactEcharts option={option} className="w-[100%] bottom-12 "/>;
 } 
 export default SalesChart;

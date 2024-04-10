@@ -31,13 +31,13 @@ export default function Home() {
 
     return (
       <section className="h-screen bg-[#242424]">
-            <div className="container h-full px-6 py-24">
-                <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
+            <div className="container h-full px-6">
+                <div className="flex h-full flex-wrap items-center justify-center">
                 <div className="mb-12 md:mb-0 md:w-6/12 lg:w-6/12">
                         <Image 
                         src={login}
                         alt="login"
-                        width={500}
+                        width={600}
                         priority
                         />
                     </div>
@@ -49,10 +49,10 @@ export default function Home() {
                             </div>
                             <input
                                 type="email"
-                                id="email"                              
+                                id="email"
                                 placeholder='Digite seu e-mail..'
                                 autoComplete="email"
-                                className="mb-6 w-full mt-2 h-12 px-4 bg-transparent border-b text-gray-200"
+                                className="mb-6 w-full mt-2 h-12 px-4 bg-transparent border-b border-gray-200 focus:outline-none text-gray-200"
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                             <input
@@ -60,16 +60,16 @@ export default function Home() {
                                 id="password"
                                 placeholder='Digite sua senha..'
                                 autoComplete="current-password"
-                                className="mb-6 w-full mt-2 h-12 px-4 bg-transparent border-b text-gray-200"
+                                className="mb-6 w-full mt-2 h-12 px-4 bg-transparent border-b border-gray-200 focus:outline-none text-gray-200"
                                 onChange={(e) => setPassword(e.target.value)}
                             />
                             <div className="w-full">
-                                <button
-                                    type="submit"
-                                    className="inline-block w-full rounded bg-emerald-400 px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-black"
-                                >
-                                    Logar
-                                </button>
+                            <button
+                                type="submit"
+                                className="inline-flex w-full h-11 relative items-center justify-center overflow-hidden font-medium transition-all bg-emerald-400 rounded group py-1.5 px-2.5">
+                                <span className="w-full h-48 rounded bg-indigo-700 absolute bottom-0 left-0 translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"></span>
+                                <span className="relative w-full text-center font-bold uppercase text-slate-900 transition-colors duration-300 ease-in-out group-hover:text-white ">Logar</span>
+                            </button>
                             </div>
                         </form>
                         <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
@@ -80,9 +80,9 @@ export default function Home() {
                         <div className="w-full">
                             <button
                                 onClick={() => router.push('/register')}
-                                className="inline-block w-full rounded bg-fuchsia-400 px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-black"
-                            >
-                                Cadastre-se
+                                className="inline-flex w-full h-11 relative items-center justify-center overflow-hidden font-medium transition-all bg-fuchsia-400 rounded group py-1.5 px-2.5">
+                                <span className="w-full h-48 rounded bg-indigo-700 absolute bottom-0 left-0 translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"></span>
+                                <span className="relative w-full text-center font-bold uppercase text-slate-900 transition-colors duration-300 ease-in-out group-hover:text-white ">Cadastre-se</span>
                             </button>
                         </div>
                     </div>
