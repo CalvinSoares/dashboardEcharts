@@ -6,6 +6,7 @@ import { useFormik } from 'formik'
 import axios from 'axios'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
+import { ToastContainer, toast } from 'react-toastify'
 
 
 const Register = () => {
@@ -29,6 +30,16 @@ const Register = () => {
                 name: values.name,
                 password: values.password
             })
+            toast.loading('Carregando...', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            })
         }
     })
 
@@ -45,23 +56,82 @@ const Register = () => {
             const res = await axios.post(
                 'https://api-dashboard-u4g5.onrender.com/auth/register',
                 data
-            )
-            if (res.data.success) {
-                console.log('Conta cadastrada com sucesso', {
-                    position: 'top-right',
-                    autoClose: 2000
-                  })
-    
+            );
+            toast.dismiss()
+            console.log('Resposta da API:', res);
+            if (res.data && res.data.message === 'User created successfully') {
+                toast.success('🎉 Cadastro bem-sucedido!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                });
+                setTimeout(() => {
+                    router.push('/');
+                }, 2000)
+                
+            } else {
+                console.log('Erro ao realizar cadastro. Resposta da API:', res.data);
+                toast.error('Erro ao realizar cadastro', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                });
             }
-            router.push('/')
         } catch (err) {
-            console.log(err)
+            console.error('Erro ao realizar cadastro:', err);
+            toast.error('Erro ao realizar cadastro', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
         }
+    }
+
+    const handleLogin = () => {
+        toast.loading('Carregando...', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        })
+
+        router.push('/');
     }
 
 
   return (
     <section className="bg-[#242424] w-screen h-screen">
+        <ToastContainer
+               position="top-right"
+               autoClose={5000}
+               hideProgressBar={false}
+               newestOnTop={false}
+               closeOnClick
+               rtl={false}
+               pauseOnFocusLoss
+               draggable
+               pauseOnHover
+               theme= "dark"
+            />
       <div className='container h-full px-6 py-6'>
         <div className='flex h-full flex-wrap items-center justify-center lg:justify-between'>
             <div className='mb-12 md:mb-0 md:w-6/12 lg:w-6/12'> 
@@ -143,7 +213,7 @@ const Register = () => {
                 </div>
                     <div className="w-full">
                         <button
-                                onClick={() => router.push('/')}
+                                onClick={handleLogin}
                                 className="inline-flex w-full h-11 relative items-center justify-center overflow-hidden font-medium transition-all bg-fuchsia-400 rounded group py-1.5 px-2.5">
                                 <span className="w-full h-48 rounded bg-indigo-700 absolute bottom-0 left-0 translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"></span>
                                 <span className="relative w-full text-center font-bold uppercase text-slate-900 transition-colors duration-300 ease-in-out group-hover:text-white ">
