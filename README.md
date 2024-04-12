@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+  <img src="/src/app/favicon.ico" width="50" alt="Logo" />
+</p>
+<h1 align="center">Dashboard financeiro</h1>
 
-## Getting Started
+![image](https://github.com/CalvinSoares/dashboardEcharts/assets/99036067/a233e5a8-dc6b-4bdf-af25-9fad2c2ed451)
+![image](https://github.com/CalvinSoares/dashboardEcharts/assets/99036067/e1c2c58b-3b94-4016-956e-90de0b51b5c1)
+![image](https://github.com/CalvinSoares/dashboardEcharts/assets/99036067/bd13e9b3-f025-45f9-bf95-9a5cbef52d48)
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Tecnologias utilizadas: 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the resulta.
+* **NEXT JS**
+* **REACT JS**
+* **TAILWIND**
+* **TYPESCRIPT**
+* **NODE JS**
+* **MONGODB**
+* **YUP**
+* **NEXT AUTH**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Descrição
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Projeto de um dashboard financeiro, Criado com Next, typescript e tailwind para interface. Como parte desse projeto, criei uma api com node, mongodb e mongoose para criar os endpoints para as rotas dos usuarios, login, registro e token. O repositorio se encontra aqui [API DO DASHBOARD](https://github.com/CalvinSoares/api-dashboard). além de usar jwt para autenticação e bcrypt para proteger as senhas dos usuarios. Como parte dos desafios que tive, consegui autenticar as rotas para o usuario apenas conseguir acessar caso faça login no site. Também implementei notificações de sucesso de login e de erro, além do carregamento para a tela e o skeleton loading do dashboard, deixando tudo mais dinamico para o usuario.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## Licença
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.a
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Licença garantida pelo [LICENSE MIT](https://choosealicense.com/licenses/mit/)
