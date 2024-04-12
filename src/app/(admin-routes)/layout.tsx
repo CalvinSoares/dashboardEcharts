@@ -19,7 +19,7 @@ const PrivateLayout = async ({ children }: PrivateLayoutProps) => {
     return (
         <>
             <StandardPage />
-            <main>{children}</main>
+            <main>{children}</main>      
         </>
     )
 }
